@@ -1,0 +1,24 @@
+@{
+    var name = new List<NameViewModel>
+    {
+        new NameViewModel { Name = "Nam", Height = 170, Role = "Chồng" },
+        new NameViewModel { Name = "Khoa", Height = 160, Role = "Vợ" },
+        new NameViewModel { Name = "Khoam", Height = 180, Role = "Con" }
+    };
+}
+<ul>
+    @foreach (var n in name)
+    {
+        <li>
+            <strong>@n.Name</strong> - Chiều cao @n.Height cm - trong vai diễn Role:
+            @if (n.Height > 160)
+            {
+                <strong>@n.Role</strong>
+            }
+            else
+            {
+                @n.Role
+            }
+        </li>
+    }
+</ul>

@@ -1,0 +1,29 @@
+@using DemoMVC.Models;
+@model JobViewModel
+
+@{
+    ViewData["Title"] = "Sửa Công Việc";
+}
+<div class="container mt-5">
+    <h1>Sửa Công Việc</h1>
+    <hr />
+
+    <form method="post" asp-action="Sua" asp-controller="Todolist">
+        <input type="hidden" asp-for="MaCongViec" />
+
+        <div class="mb-3">
+            <label asp-for="TenCongViec" class="form-label">Tên Công Việc:</label>
+            <input type="text" asp-for="TenCongViec" class="form-control" required />
+        </div>
+        
+        <div class="mb-3 form-check">
+            <input type="checkbox" asp-for="TrangThai" class="form-check-input" />
+            <label asp-for="TrangThai" class="form-check-label">
+                 Hoàn Thành
+            </label>
+        </div>
+        
+        <div class="btn-group" role="group">
+            <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
+        </div>
+    </form>

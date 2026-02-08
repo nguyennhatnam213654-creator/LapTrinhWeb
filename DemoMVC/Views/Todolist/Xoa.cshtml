@@ -1,0 +1,31 @@
+@using DemoMVC.Models;
+@model JobViewModel
+
+@{
+    ViewData["Title"] = "Xóa Công Việc";
+}
+<div class="container mt-5">
+    <h1>Xóa Công Việc</h1>
+    <hr />
+
+    <div class="alert alert-danger">
+        <h4>Bạn có chắc chắn muốn xóa công việc sau không?</h4>
+        <p><strong>Mã Công Việc:</strong> @Model.MaCongViec</p>
+        <p><strong>Tên Công Việc:</strong> @Model.TenCongViec</p>
+        <p><strong>Trạng Thái:</strong>
+            @if (Model.TrangThai)
+            {
+                <span class="badge bg-success">✓ Hoàn thành</span>
+            }
+            else
+            {
+                <span class="badge bg-warning">✗ Chưa hoàn thành</span>
+            }
+        </p>
+
+        <form method="post" asp-action="Xoa" asp-controller="Todolist">
+            <input type="hidden" name="MaCongViec" value="@Model.MaCongViec" />
+            <button type="submit" class="btn btn-danger">Xóa Công Việc</button>
+            <a href="/Todolist/XemList" class="btn btn-secondary">Hủy</a>
+        </form>
+    </div>

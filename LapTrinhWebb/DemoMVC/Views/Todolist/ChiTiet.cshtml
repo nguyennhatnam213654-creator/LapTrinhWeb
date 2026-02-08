@@ -1,0 +1,27 @@
+@using DemoMVC.Models;
+@model JobViewModel
+
+@{
+    ViewData["Title"] = "Chi tiết Công Việc";
+}
+
+<div class="container mt-5">
+    <h1>Chi tiết Công Việc</h1>
+    <hr />
+
+    <div class="card">
+        <div class="card-header">
+            <strong>Mã Công Việc: </strong> @Model.MaCongViec
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">@Model.TenCongViec</h5>
+            <p class="card-text">
+                <strong>Trạng Thái: </strong>
+                @if (Model.TrangThai)
+                {
+                    <span class="badge bg-success">✓ Hoàn thành</span>
+                }
+                else
+                {
+                    <span class="badge bg-warning">✗ Chưa hoàn thành</span>
+                }

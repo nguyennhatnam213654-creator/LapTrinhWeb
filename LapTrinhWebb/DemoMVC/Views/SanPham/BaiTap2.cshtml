@@ -1,0 +1,38 @@
+@model DemoMVC.Models.SanPhamViewModel
+
+@{
+    ViewData["Title"] = "Thông Tin Sản Phẩm";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            @if (!string.IsNullOrEmpty(Model?.AnhSanPham))
+            {
+                <img src="@Model.AnhSanPham" alt="@Model.TenSanPham" class="img-fluid" />
+            }
+            else
+            {
+                <div class="alert alert-warning">Chưa có ảnh sản phẩm</div>
+            }
+        </div>
+        <div class="col-md-6">
+            <h2>@Model?.TenSanPham</h2>
+            <hr />
+            <h4 class="text-danger">Giá: @(Model?.Gia.ToString("C"))
+            </h4>
+            <hr />
+            <a href="#" class="btn btn-primary" onclick="showCat()">Mua ngay</a>
+            <br/>
+            <hr />
+            <img id="catImage"
+                src="https://i.pinimg.com/736x/b8/87/a8/b887a8b6f7913e1b49629d611c1dba8e.jpg"
+                style="display:none; width:300px;" />
+            <script>
+                function showCat() {
+                    document.getElementById("catImage").style.display = "block";
+                }
+            </script>
+        </div>
+    </div>
+</div>
