@@ -3,16 +3,17 @@ using DemoMVC.Models;
 
 namespace DemoMVC.Controllers;
 
+[Route("RegStu")]
 public class StudentController : Controller
 {
-    [HttpGet] // Hiển thị form
-    public IActionResult Index()
+    [HttpGet("")] // Hiển thị form
+    public IActionResult RegStu()
     {
         return View(new StudentViewModel());
     }
 
-    [HttpPost] // Nhận dữ liệu từ form
-    public IActionResult Index(StudentViewModel model) 
+    [HttpPost("")] // Nhận dữ liệu từ form
+    public IActionResult RegStu(StudentViewModel model) 
     {
         if (ModelState.IsValid && !string.IsNullOrEmpty(model.MSSV))
         {
